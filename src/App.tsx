@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import { PrivateRoute } from './routes/PrivateRoute';
-import { Navbar } from './components/Navbar'; // Importe aqui
-import { Home } from './pages/Home';
-import { Login } from './pages/Login';
-import { Registro } from './pages/Registro';
-import { Carrinho } from './pages/Carrinho';
-import { AdminRoute } from './routes/AdminRoute';
-import { AdminProdutos } from './pages/AdminProdutos';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import { PrivateRoute } from "./routes/PrivateRoute";
+import { Navbar } from "./components/Navbar"; // Importe aqui
+import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
+import { Registro } from "./pages/Registro";
+import { Carrinho } from "./pages/Carrinho";
+import { AdminRoute } from "./routes/AdminRoute";
+import { AdminProdutos } from "./pages/AdminProdutos";
 
 // Suas páginas...
 
@@ -16,8 +16,7 @@ export function App() {
     <BrowserRouter>
       <AuthProvider>
         <Navbar /> {/* A Navbar fica fixa no topo */}
-        
-        <main style={{ padding: '2rem' }}>
+        <main className="nozama-container py-8">
           <Routes>
             {/* Rotas Públicas */}
             <Route path="/" element={<Home />} />
@@ -34,7 +33,7 @@ export function App() {
               <Route path="/admin/produtos" element={<AdminProdutos />} />
             </Route>
           </Routes>
-                  </main>
+        </main>
       </AuthProvider>
     </BrowserRouter>
   );

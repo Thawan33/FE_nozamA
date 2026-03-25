@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --nozama-brand-navy: #232f3e;
+  --nozama-brand-deep: #131921;
+  --nozama-brand-accent: #febd69;
+  --nozama-danger: #ff4d4d;
+  --nozama-text-on-dark: #ffffff;
+  --nozama-border-muted: #555555;
+  --nozama-shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nozama-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .nozama-container {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nozama-container {
+    padding-inline: 2rem;
+  }
+}
