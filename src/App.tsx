@@ -16,7 +16,7 @@ export function App() {
     <BrowserRouter>
       <AuthProvider>
         <Navbar /> {/* A Navbar fica fixa no topo */}
-        <main className="nozama-container py-8">
+        <main className="pt-20">
           <Routes>
             {/* Rotas Públicas */}
             <Route path="/" element={<Home />} />

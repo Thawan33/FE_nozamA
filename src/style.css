@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-:root {
-  --nozama-brand-navy: #232f3e;
-  --nozama-brand-deep: #131921;
-  --nozama-brand-accent: #febd69;
-  --nozama-danger: #ff4d4d;
-  --nozama-text-on-dark: #ffffff;
-  --nozama-border-muted: #555555;
-  --nozama-shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
+@theme {
+  --color-nozama: #232f3e;
+  --color-nozama-deep: #131921;
+  --color-nozama-accent: #febd69;
+  --color-nozama-danger: #ff4d4d;
+  --color-nozama-light: #ffffff;
+  --color-nozama-muted: #555555;
+  --shadow-nozama-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nozama-container {
