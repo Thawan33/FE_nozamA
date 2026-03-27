@@ -13,6 +13,12 @@ export function AdminProdutos() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (product.preco <= 0 || product.quantidade <= 0) {
+      setMensagem('Erro: Preço e estoque não podem ser negativos!');
+      return;
+    }
+
     try {
       await api.post('/produtos', product);
       setMensagem('Produto cadastrado com sucesso!');
@@ -34,10 +40,14 @@ export function AdminProdutos() {
         <textarea placeholder="Descrição" value={product.descricao} 
           onChange={e => setProduct({...product, descricao: e.target.value})} required />
         
-        <input type="number" placeholder="Preço" value={product.preco} 
+        <p>Preço:</p>
+
+        <input type="number" placeholder="Preço" value={product.preco} min="0" step="0.01" 
           onChange={e => setProduct({...product, preco: Number(e.target.value)})} required />
         
-        <input type="number" placeholder="Estoque inicial" value={product.quantidade} 
+        <p>Quantidade:</p>
+
+        <input type="number" placeholder="Estoque inicial" value={product.quantidade}  min="0" 
           onChange={e => setProduct({...product, quantidade: Number(e.target.value)})} required />
         
         <input placeholder="URL da Foto (ex: https://...)" value={product.foto} 
@@ -50,7 +60,7 @@ export function AdminProdutos() {
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  container: { maxWidth: '600px', margin: '2rem auto', padding: '1rem', border: '1px solid #ddd' },
+  container: { color: '#ffffff', maxWidth: '600px', margin: '2rem auto', background: '#b98500', padding: '1rem', border: '1px solid #ddd' },
   form: { display: 'flex', flexDirection: 'column', gap: '15px' },
   alert: { color: 'green', fontWeight: 'bold' },
   btn: { background: '#febd69', border: 'none', padding: '10px', cursor: 'pointer', fontWeight: 'bold' }

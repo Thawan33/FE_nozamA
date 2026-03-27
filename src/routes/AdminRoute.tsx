@@ -5,8 +5,7 @@ import { AuthContext } from '../contexts/AuthContext';
 export function AdminRoute() {
   const { user, signed } = useContext(AuthContext);
 
-  if (!signed) return <Navigate to="/login" />;
+  if (!signed) return <Navigate to="/" />;
   
-  // Se estiver logado mas não for ADMIN, manda para a Home
   return user?.role === 'ADMIN' ? <Outlet /> : <Navigate to="/" />;
 }

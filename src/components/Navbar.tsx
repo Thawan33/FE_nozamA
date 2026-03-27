@@ -17,7 +17,7 @@ export function Navbar() {
       <div className="nozama-container flex flex-wrap py-6 items-center justify-between gap-2">
         <div className="text-2xl font-bold">
           <Link
-            to="/"
+            to="/produtos"
             className="text-nozama-light no-underline transition-opacity duration-200 hover:opacity-90"
           >
             <img
@@ -30,13 +30,12 @@ export function Navbar() {
 
         <div className="flex items-center gap-6">
           <Link
-            to="/"
+            to="/produtos"
             className="text-[0.95rem] text-nozama-light no-underline transition-opacity duration-200 hover:opacity-90"
           >
             Home
           </Link>
 
-          {/* Links Visíveis apenas para Logados */}
           {signed && (
             <Link
               to="/carrinho"
@@ -46,7 +45,6 @@ export function Navbar() {
             </Link>
           )}
 
-          {/* Link Visível apenas para ADMIN */}
           {user?.role === "ADMIN" && (
             <Link
               to="/admin/produtos"
@@ -56,7 +54,6 @@ export function Navbar() {
             </Link>
           )}
 
-          {/* Seção de Autenticação */}
           {signed ? (
             <div className="flex items-center gap-4 border-l border-nozama-muted pl-4">
               <span className="text-[0.9rem]">

@@ -1,5 +1,5 @@
 export interface DecodedToken {
-  sub: string;    // Username
-  role: string;   // "USER" ou "ADMIN"
-  exp: number;    // Expiração
+  sub: string;
+  role: string;
+  exp: number;
 }

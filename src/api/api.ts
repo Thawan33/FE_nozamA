@@ -4,7 +4,6 @@ const api = axios.create({
     baseURL: 'http://localhost:8080'
 })
 
-// Interceptor para injetar o Token JWT em cada requisição
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('@Nozama:token');
   if (token && config.headers) {

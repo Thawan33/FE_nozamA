@@ -19,17 +19,13 @@ export function Login() {
     setLoading(true);
 
     try {
-      // Chama o endpoint /auth/login do seu Spring Boot
       const response = await api.post("/auth/login", { username, password });
 
-      // O backend retorna um objeto contendo o token JWT
       const { token } = response.data;
 
-      // Armazena o token no contexto e localStorage
       login(token);
 
-      // Redireciona para a home
-      navigate("/");
+      navigate("/produtos");
     } catch (err: any) {
       setError("Falha no login. Verifique suas credenciais.");
       console.error(err);

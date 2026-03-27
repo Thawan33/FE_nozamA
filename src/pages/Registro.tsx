@@ -27,8 +27,6 @@ export function Registro() {
     setLoading(true);
 
     try {
-      // Chama o endpoint /auth/register do seu Spring Boot
-      // Por padrão, definimos o role como "USER"
       await api.post("/auth/register", {
         username,
         password,
@@ -39,13 +37,11 @@ export function Registro() {
         "Usuário registrado com sucesso! Redirecionando para o login...",
       );
 
-      // Redireciona após 2 segundos
       setTimeout(() => {
         navigate("/login");
       }, 2000);
     } catch (err: any) {
       if (err.response && err.response.data) {
-        // Exibe mensagem de erro retornada pela API (ex: "Usuário já existe")
         setError(err.response.data);
       } else {
         setError("Ocorreu um erro ao registrar o usuário.");

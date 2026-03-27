@@ -43,7 +43,6 @@ export function Carrinho() {
 
     useEffect(() => { fetchCart(); }, [user]);
 
-    // FUNÇÃO: REMOVER ITEM
     const handleRemove = async (productId: string) => {
         try {
             await api.post(`/users/cart/remove?userId=${user?.sub}&productId=${productId}`);
@@ -53,7 +52,6 @@ export function Carrinho() {
         }
     };
 
-    // FUNÇÃO: FINALIZAR COMPRA
     const handleFinish = async () => {
         try {
             const res = await api.post(`/users/cart/finish?userId=${user?.sub}`);
@@ -68,19 +66,21 @@ export function Carrinho() {
 
     return (
         <div style={styles.container}>
-            <h1>Seu Carrinho</h1>
+            <h1 style={{color: '#ffffff'}}>Seu Carrinho</h1>
             {cartItems.length === 0 ? (
-                <p>Vazio :(</p>
+                <p style={{color: '#ffffff'}}>
+                    Vazio :(
+                </p>
             ) : (
                 <>
                     {cartItems.map((item) => (
                         <div key={item.productId} style={styles.item}>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ color: '#ffffff', display: 'flex', flexDirection: 'column' }}>
                                 <strong>{item.productDetail?.nome}</strong>
                                 <span>Quantidade: {item.quantidade}</span>
                             </div>
 
-                            <div style={{ textAlign: 'right' }}>
+                            <div style={{ color: '#ffffff', textAlign: 'right' }}>
                                 {/* Subtotal: preço * quantidade */}
                                 <p>R$ {((item.productDetail?.preco || 0) * item.quantidade).toFixed(2)}</p>
 
@@ -107,6 +107,6 @@ const styles: Record<string, React.CSSProperties> = {
     container: { maxWidth: '600px', margin: '0 auto' },
     item: { display: 'flex', justifyContent: 'space-between', padding: '10px', borderBottom: '1px solid #ddd' },
     removeBtn: { color: 'red', border: 'none', background: 'none', cursor: 'pointer' },
-    footer: { marginTop: '20px', textAlign: 'right' },
-    finishBtn: { background: '#f0c14b', padding: '10px 20px', border: '1px solid #a88734', cursor: 'pointer' }
+    footer: { color: '#ffffff', marginTop: '20px', textAlign: 'right' },
+    finishBtn: { background: '#c78f00', padding: '10px 20px', border: '1px solid #a88734', cursor: 'pointer' }
 };
